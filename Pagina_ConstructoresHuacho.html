@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructores Huacho S.A.C</title>
+    <link rel="icon" href="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\logo.png"type="image/png">
+
+    <style>
+        :root {
+            --colors: #1a5f7a, #159895, #57c5b6, #2c3e50, #34495e, #2980b9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .contact-container {
+            margin-top: 50px;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espaciado entre íconos */
+            margin-top: 20px;
+            flex-wrap: wrap; /* Para que se acomoden si no caben en pantalla */
+        }
+
+        .contact-icons a img {
+            width: 40px; /* Tamaño ajustable */
+            height: 40px; /* Mantener proporción */
+            transition: transform 0.3s ease;
+        }
+
+        .contact-icons a img:hover {
+            transform: scale(1.2); /* Efecto de agrandamiento al pasar el cursor */
+        }
+
+
+
+        body {
+            font-family: 'calibri', sans-serif;
+            background: linear-gradient(45deg, var(--colors));
+            background-size: 400% 400%;
+            color: white;
+            line-height: 1.6;
+            animation: backgroundAnimation 15s ease infinite;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .header img {
+            max-width: 200px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+        }
+
+        .nav {
+            background: rgba(0,0,0,0.7);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-items {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem;
+        }
+
+        .nav-item {
+            color: white;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0rem;
+            align-items: center;
+        }
+
+        .section-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .service-card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-icons a {
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .footer {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-items, .content-grid, .services-grid {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\logo.png"alt="Logo Constructores Huacho">
+        <h1>Constructores Huacho S.A.C</h1>
+        <p>Soluciones integrales en construcción</p>
+    </header>
+
+    <nav class="nav">
+        <ul class="nav-items">
+            <li class="nav-item" onclick="showSection('inicio')">INICIO</li>
+            <li class="nav-item" onclick="showSection('nosotros')">NOSOTROS</li>
+            <li class="nav-item" onclick="showSection('servicios')">SERVICIOS</li>
+            <li class="nav-item" onclick="showSection('proyectos')">PROYECTOS</li>
+            <li class="nav-item" onclick="showSection('contacto')">CONTACTO</li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section id="inicio" class="content-section active">
+
+            <div class="content-grid">
+                <div>
+                    <h3>Misión</h3>
+                    <p>Ofrecer soluciones de construcción de alta calidad, innovando constantemente y satisfaciendo las necesidades de nuestros clientes con profesionalismo y compromiso. <br> </p>
+                    <h3><br>Visión</h3>
+                    <p>Ser líderes en el sector construcción, reconocidos por nuestra excelencia, innovación tecnológica y responsabilidad social.</p>
+                </div>
+                <img src="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\URIBE.png"alt="Misión y Visión" class="section-image">
+            </div>
+        </section>
+
+        <section id="nosotros" class="content-section">
+            <div class="content-grid">
+                <div>
+                    <p>En CONSTRUCTORES HUACHO, nos dedicamos a ofrecer soluciones de construcción de alta calidad, comprometidos con la innovación, la sostenibilidad y la seguridad.  Nuestra misión es transformar las ideas de nuestros clientes en proyectos exitosos, brindando servicios de construcción que superen sus expectativas, utilizando 
+                        materiales de primera y aplicando prácticas de vanguardia. </p>
+                    <p>Trabajamos con un equipo altamente capacitado y comprometido, asegurando la entrega puntual y dentro 
+    
+        </section>
+
+        <section id="servicios" class="content-section">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\consultoria.png"alt="Construcción Civil">
+                    <h3>---------------------------</h3>
+                    <p> Actividades de la arquitectura e ingenieria y actividades conexas de consultoria tecnica. </p>
+                </div>
+                <div class="service-card">
+                    <img src="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\diseno.png"alt="Gestión de Proyectos">
+                    <h3>---------------------------</h3>
+                    <p> Otras actividades de venta al por menor en comercios no especializados. </p>
+                </div>
+                <div class="service-card">
+                    <img src="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\alquiler.png"alt="Diseño Arquitectónico">
+                    <h3>---------------------------</h3>
+                    <p> Alquiler y arrendamiento de otros tipos de maquinaria, equipo y bienes tangibles. </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="proyectos" class="content-section">
+            <h2>Proyectos Destacados</h2>
+            <div class="content-grid">
+                    <div class="service-card">
+                        <img src="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\Imagencons1.jpg"alt="Construcción Civil">
+                    </div>
+                    <div class="service-card">
+                        <img src="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\Imagencons2.jpg" alt="Diseño Arquitectónico">
+                    </div>
+                    <div class="service-card">
+                        <img src="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\Imagencons3.jpg" alt="Gestión de Proyectos">
+                    </div>
+                    <div class="service-card">
+                        <img src="C:\Users\USUARIO\OneDrive\Desktop\Construcctores huacho\imagenes\Imagencons4.jpg" alt="Consultoría Técnica">
+                    </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="content-section">
+            <h2>Contáctanos al TELEFONO <br>959 540 689</h2>
+            <h3><br> REDES SOCIALES </h3>
+            <div class="contact-icons">
+                <a href="https://www.facebook.com/share/15aHMhxuwi/?mibextid=qi2Omg" target="_blank">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                </a>
+                <a href="http://t.me/ConstructoresHuacho" target="_blank">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+                </a>
+                <a href="https://www.tiktok.com/@constructores.hua?_t=ZM-8snYKndb6Ry&_r=1" target="_blank">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
+                </a>
+                <a href="https://wa.me/p/7355512317829052/51959540689" target="_blank">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </a>
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=constructoreshuacho.sac@gmail.com&su=Consulta%20sobre%20servicios&body=Hola,%20quisiera%20más%20información%20sobre..." target="_blank">
+                    <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Correo Electrónico">
+                </a>
+                
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© Huacho S.A.C.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+
+            const activeNavItem = document.querySelector(`.nav-item[onclick="showSection('${sectionId}')"]`);
+            activeNavItem.classList.add('active');
+
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const targetSection = document.getElementById(sectionId);
+            targetSection.classList.add('active');
+        }
+
+        document.querySelector('.nav-item').classList.add('active');
+    </script>
+</body>
+</html>
